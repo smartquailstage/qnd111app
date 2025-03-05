@@ -24,12 +24,27 @@ if SECRET_KEY is None:
 # Application definition
 
 INSTALLED_APPS = [
+    "unfold",  # before django.contrib.admin
+    "unfold.contrib.filters",  # optional, if special filters are needed
+    "unfold.contrib.forms",  # optional, if special form elements are needed
+    "unfold.contrib.inlines",  # optional, if special inlines are needed
+    "unfold.contrib.import_export",  # optional, if django-import-export package is used
+    "unfold.contrib.guardian",  # optional, if django-guardian package is used
+    "unfold.contrib.simple_history",
+
     'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shop',
+    'orders',
+    'payment',
+    'coupons',
+    #WEBAPP
+    "webapp",
+
     'core',
     'wagtail',
     'wagtailmedia',
@@ -65,8 +80,15 @@ INSTALLED_APPS = [
     'ckeditor',
     'wagtail.contrib.settings',
     "wagtail_ai",
-    "webapp",
-    "bootstrap_datepicker_plus", 
+
+    'localflavor',
+    'parler',
+    'jquery',
+    'phone_field',
+    'phonenumber_field',
+    'bootstrap5',
+ 
+    'bootstrap_datepicker_plus',
 ]
 
 
@@ -185,9 +207,11 @@ WAGTAILIMAGES_MAX_IMAGE_PIXELS = os.environ.get('WAGTAILIMAGES_MAX_IMAGE_PIXELS'
 
 
 # Configuración de sesiones usando Redis
-#SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-#SESSION_CACHE_ALIAS = "default"
-
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+REDIS_HOST = os.environ.get('REDIS_HOST')  # Cambia esto según tu configuración
+REDIS_PORT  = os.environ.get('REDIS_PORT')        # Puerto por defecto de Redis
+REDIS_DB  = os.environ.get('REDIS_DB')
 
 
 

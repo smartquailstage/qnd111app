@@ -34,7 +34,11 @@ urlpatterns = i18n_patterns(
    # path('baton/', include('baton.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('rosetta/', include('rosetta.urls')),
-    
+    path('coupons/', include('coupons.urls', namespace='coupons')),
+    path('cart/', include('cart.urls', namespace='cart')),
+    path('orders/', include('orders.urls', namespace='orders')),
+    path('payment/', include('payment.urls', namespace='payment')),
+    path('tours/', include('shop.urls', namespace='shop')),
   
     #path('orders/', include('orders.urls', namespace='orders')),
     #path('payment/', include('payment.urls', namespace='payment')),

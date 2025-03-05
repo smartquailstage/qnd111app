@@ -1,6 +1,9 @@
 # Django
 django>=4.2,<5.0
 
+# Django Baton
+#django-baton==2.6.2
+django-unfold
 
 # Wagtail
 wagtail
@@ -13,6 +16,9 @@ django-social-share
 # Wagtail Google Maps
 wagtailgmaps
 
+# XlsxWriter
+XlsxWriter
+
 # Requests
 requests
 
@@ -21,6 +27,9 @@ celery>=5.2.7,<6.0  # Compatible with Django 4.2
 
 # uWSGI
 uWSGI==2.0.28
+
+# Redis
+redis>=4.5.5
 
 # Django Dotenv
 django-dotenv
@@ -121,6 +130,8 @@ django-debug-toolbar>=4.0.1
 # Django Seed
 django-seed
 
+# Pymemcache
+pymemcache>=3.5.2
 
 # Boto3
 boto3>=1.26.6
@@ -134,11 +145,18 @@ python-dotenv==0.21.0
 # Python Memcached
 python-memcached
 
+# Ecommerce
+braintree>=4.29.0
 
+# Weasyprint
+weasyprint>=57.0
 
 # Wagtail Menus
 wagtailmenus>=1.5.1
+
 qrcode
+
 twilio 
+requests
 openai
 wagtail-ai
