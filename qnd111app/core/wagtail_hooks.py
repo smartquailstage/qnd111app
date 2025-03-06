@@ -36,7 +36,6 @@ def global_admin_css():
 
 
 
-
 @hooks.register('register_admin_menu_item')
 def register_custom_menu_item():
     # Genera la URL correctamente con reverse
@@ -44,10 +43,11 @@ def register_custom_menu_item():
     
     # Crea un nuevo elemento de menú con la URL generada
     return MenuItem(
-        'E-commerce Manager',  # El nombre del elemento
+        'Dashboard',  # El nombre del elemento
         url,  # Utiliza la URL generada por reverse
-        classnames='icon icon-menu',  # Clases CSS para el ícono del menú
+        classnames='icon icon-tasks',  # Clases CSS para el ícono del menú, usa iconos de Wagtail
         order=100  # El orden en que se muestra el ítem (menor valor, más arriba)
     )
+
 
 
