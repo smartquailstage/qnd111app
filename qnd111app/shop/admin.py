@@ -1,6 +1,35 @@
 from django.contrib import admin
 from .models import Category, Product
 from parler.admin import TranslatableAdmin
+from wagtail_modeladmin.options import ModelAdmin, modeladmin_register,ModelAdminGroup
+
+
+
+
+
+class CategoryAdmin(ModelAdmin):
+    model = Category
+    menu_label = 'Product Mananger'  # El nombre que aparece en el menú de administración
+    menu_icon = 'tag'  # El ícono que aparece en el menú
+    list_display = ('name', 'slug')  # Qué columnas se muestran en la lista
+    search_fields = ('name',)  # Campos por los cuales se puede buscar
+    add_to_settings_menu = True 
+    menu_item_name = "Mi nombre de menú personalizado" 
+    
+
+# Registra el modelo en Wagtail Admin
+
+
+
+class LibraryGroup(ModelAdminGroup):
+    menu_label = "Library"
+    menu_icon = "folder-open-inverse"  # change as required
+    menu_order = 200  # will put in 3rd place (000 being 1st, 100 2nd)
+    items = (CategoryAdmin, )
+
+modeladmin_register(LibraryGroup)
+
+
 
 
 @admin.register(Category)

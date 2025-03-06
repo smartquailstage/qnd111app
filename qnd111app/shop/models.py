@@ -1,35 +1,47 @@
 from django.db import models
 from django.urls import reverse
 from parler.models import TranslatableModel, TranslatedFields
+from wagtail.admin.panels import FieldPanel
+from wagtail.models import Page
+
 
 class Category(TranslatableModel):
+    # Definimos los campos traducibles
     translations = TranslatedFields(
-    name = models.CharField(max_length=200,
-                            db_index=True),
-    slug = models.SlugField(max_length=200,
-                            unique=True),
-
-    image = models.ImageField(upload_to='categories/%Y/%m/%d',
-                              blank=True),
-    salidas = models.DateTimeField(null=True),
-    desde =  models.CharField(max_length=200, null=True),
-    description = models.TextField(blank=True,null=True),
-    detail = models.FileField(upload_to='tours/%Y/%m/%d',null=True),
-    terms = models.TextField(blank=True),
-
+        name=models.CharField(max_length=200, db_index=True),
+        slug=models.SlugField(max_length=200, unique=True),
+        image=models.ImageField(upload_to='categories/%Y/%m/%d', blank=True),
+        salidas=models.DateTimeField(null=True),
+        desde=models.CharField(max_length=200, null=True),
+        description=models.TextField(blank=True, null=True),
+        detail=models.FileField(upload_to='tours/%Y/%m/%d', null=True),
+        terms=models.TextField(blank=True)
     )
 
+    # Definir el panel de administración para la edición de campos traducidos
+    content_panels = [
+        FieldPanel('translations__name'),  # Nombre
+        FieldPanel('translations__slug'),  # Slug
+        FieldPanel('translations__image'),  # Imagen
+        FieldPanel('translations__salidas'),  # Salidas
+        FieldPanel('translations__desde'),  # Desde
+        FieldPanel('translations__description'),  # Descripción
+        FieldPanel('translations__detail'),  # Detalles
+        FieldPanel('translations__terms')  # Términos
+    ]
+
     class Meta:
-        #ordering = ('name',)
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
     def __str__(self):
-        return self.name
+        return self.safe_translation_getter('name', str(self.id))
 
     def get_absolute_url(self):
-            return reverse('shop:product_list_by_category',
-                           args=[self.slug])
+        return reverse('shop:product_list_by_category', args=[self.slug])
+
+
+
 
 
 class Product(TranslatableModel):

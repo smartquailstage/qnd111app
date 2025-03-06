@@ -24,6 +24,7 @@ if SECRET_KEY is None:
 # Application definition
 
 INSTALLED_APPS = [
+    'parler',
     "unfold",  # before django.contrib.admin
     "unfold.contrib.filters",  # optional, if special filters are needed
     "unfold.contrib.forms",  # optional, if special form elements are needed
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     "unfold.contrib.import_export",  # optional, if django-import-export package is used
     "unfold.contrib.guardian",  # optional, if django-guardian package is used
     "unfold.contrib.simple_history",
+   
 
     'django.contrib.contenttypes',
     'django.contrib.admin',
@@ -45,9 +47,11 @@ INSTALLED_APPS = [
     #WEBAPP
     "webapp",
 
+
     'core',
     'wagtail',
     'wagtailmedia',
+    "wagtail_modeladmin",
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'django.contrib.humanize',
@@ -82,18 +86,33 @@ INSTALLED_APPS = [
     "wagtail_ai",
 
     'localflavor',
-    'parler',
+   
     'jquery',
     'phone_field',
     'phonenumber_field',
     'bootstrap5',
  
     'bootstrap_datepicker_plus',
+  
+    'wagtail_modeltranslation',
+    'wagtail_modeltranslation.makemigrations',
+    'wagtail_modeltranslation.migrate',
+   
 ]
 
 
 
-
+# Configuración de `parler`
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en',},
+        {'code': 'es',},
+    ),
+    'default': {
+        'fallbacks': ['en'],  # Los idiomas de reserva
+        'hide_untranslated': False,  # Ocultar campos no traducidos
+    }
+}
 
 
 
@@ -101,6 +120,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     #'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.middleware.security.SecurityMiddleware',
+   
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',

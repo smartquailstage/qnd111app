@@ -15,11 +15,23 @@ header {
     background-color: hsl(203deg 62% 43%);
 }
 
+.login .content-wrapper {
+    background: #002323;
+    border: 3px solid #0000;
+    border-radius: .625rem;
+    box-shadow: 5px 5px 30px var(--w-color-box-shadow-md);
+    float: none;
+    height: auto;
+    margin-bottom: 15vh;
+    max-width: 25.2rem;
+    padding: 2.5rem 3rem;
+}
+
 
 
 .sidebar__inner {
     height: 100%;
-    background: #0f0e0e;
+    background: #002323;
     display: flex;
     flex-flow: column nowrap;
   }

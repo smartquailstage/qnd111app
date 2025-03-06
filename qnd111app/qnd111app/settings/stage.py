@@ -19,17 +19,15 @@ UNFOLD = {
     "SITE_TITLE": "SmartBusinessAnalytics",
     "SITE_HEADER": "SmartBusinessAnalytics",
     "SITE_URL": "/",
-    # "SITE_ICON": lambda request: static("icon.svg"),  # both modes, optimise for 32px height
     "SITE_ICON": {
-        "light": lambda request: static("img/logo.png"),  # light mode
-        "dark": lambda request: static("img/logo.png"),  # dark mode
+        "light": lambda request: static("img/logo.png"),
+        "dark": lambda request: static("img/logo.png"),
     },
-    # "SITE_LOGO": lambda request: static("logo.svg"),  # both modes, optimise for 32px height
     "SITE_LOGO": {
-        "light": lambda request: static("img/m2.png"),  # light mode
-        "dark": lambda request: static("img/m2.png"),  # dark mode
+        "light": lambda request: static("img/m2.png"),
+        "dark": lambda request: static("img/m2.png"),
     },
-    "SITE_SYMBOL": "speed",  # symbol from icon set
+    "SITE_SYMBOL": "speed",
     "SITE_FAVICONS": [
         {
             "rel": "icon",
@@ -38,15 +36,13 @@ UNFOLD = {
             "href": lambda request: static("img/logo.png"),
         },
     ],
-    "SHOW_HISTORY": True,  # show/hide "History" button, default: True
-    "SHOW_VIEW_ON_SITE": True,  # show/hide "View on site" button, default: True
-    "SHOW_BACK_BUTTON": True,  # show/hide "Back" button on changeform in header, default: False
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+    "SHOW_BACK_BUTTON": True,
     "ENVIRONMENT": "danger.environment_callback",
-   # "DASHBOARD_CALLBACK": "shop.dashboard_callback",
-    "THEME": "light",  # Force theme: "dark" or "light". Will disable theme switcher
+    "THEME": "light",
     "LOGIN": {
-        "image": lambda request: static("img/login_splash.jpg"),
-        #"redirect_after": lambda request: reverse_lazy("admin:APP_MODEL_changelist"),
+        "image": lambda request: static("img/logo_splash.png"),
     },
     "STYLES": [
         lambda request: static("css/style.css"),
@@ -57,38 +53,38 @@ UNFOLD = {
     "BORDER_RADIUS": "3px",
     "COLORS": {
         "base": {
-            "50": "249 250 251",
-            "100": "243 244 246",
-            "200": "229 231 235",
-            "300": "209 213 219",
-            "400": "156 163 175",
-            "500": "107 114 128",
-            "600": "75 85 99",
-            "700": "55 65 81",
-            "800": "31 41 55",
-            "900": "17 24 39",
-            "950": "3 7 18",
+            "50": "#F9FAFB",
+            "100": "#F3F4F6",
+            "200": "#E5E7EB",
+            "300": "#D1D5DB",
+            "400": "#9CA3AF",
+            "500": "#6B7280",
+            "600": "#4B5563",
+            "700": "#374151",
+            "800": "#1F2937",
+            "900": "#111827",
+            "950": "#030718",
         },
         "primary": {
-            "50": "250 245 255",
-            "100": "243 232 255",
-            "200": "233 213 255",
-            "300": "216 180 254",
-            "400": "192 132 252",
-            "500": "194 2 2",
-            "600": "209 5 5",
-            "700": "126 34 206",
-            "800": "107 33 168",
-            "900": "88 28 135",
-            "950": "59 7 100",
+            "50": "#FAF5FF",
+            "100": "#F3E8FF",
+            "200": "#E9D5FF",
+            "300": "#D8B4FE",
+            "400": "#C084FC",
+            "500": "#C20002",
+            "600": "#D10505",
+            "700": "#7E22CE",
+            "800": "#6B21A8",
+            "900": "#581C87",
+            "950": "#3B0764",
         },
         "font": {
-            "subtle-light": "var(--color-base-500)",  # text-base-500
-            "subtle-dark": "var(--color-base-400)",  # text-base-400
-            "default-light": "var(--color-base-600)",  # text-base-600
-            "default-dark": "var(--color-base-300)",  # text-base-300
-            "important-light": "var(--color-base-900)",  # text-base-900
-            "important-dark": "var(--color-base-100)",  # text-base-100
+            "subtle-light": "var(--color-base-500)",
+            "subtle-dark": "var(--color-base-400)",
+            "default-light": "var(--color-base-600)",
+            "default-dark": "var(--color-base-300)",
+            "important-light": "var(--color-base-900)",
+            "important-dark": "var(--color-base-100)",
         },
     },
     "EXTENSIONS": {
@@ -101,13 +97,13 @@ UNFOLD = {
         },
     },
     "SIDEBAR": {
-        "show_search": True,  # Search in applications and models names
-        "show_all_applications": True,  # Dropdown with all applications and models
+        "show_search": True,
+        "show_all_applications": True,
         "navigation": [
             {
                 "title": _("E-Commerce Management"),
-                "separator": True,  # Top border
-                "collapsible": True,  # Collapsible group of links
+                "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": _("Product Categories"),
@@ -130,12 +126,11 @@ UNFOLD = {
                         "link": reverse_lazy("admin:coupons_coupon_changelist"),
                     },
                 ],
-
             },
             {
                 "title": _("E-commerce Analytics"),
-                "separator": True,  # Top border
-                "collapsible": True,  # Collapsible group of links
+                "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": _("Products vs Sales"),
@@ -156,8 +151,8 @@ UNFOLD = {
             },
             {
                 "title": _("E-commerce Statistics"),
-                "separator": True,  # Top border
-                "collapsible": True,  # Collapsible group of links
+                "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": _("Products vs Sales"),
@@ -178,8 +173,8 @@ UNFOLD = {
             },
             {
                 "title": _("Users and Groups Management"),
-                "separator": True,  # Top border
-                "collapsible": True,  # Collapsible group of links
+                "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": _("Users"),
@@ -199,10 +194,7 @@ UNFOLD = {
                 ],
             },
         ],
-
     },
-
-    # Aquí añadimos el nuevo TAB de productos
     "TABS": [
         {
             "models": [
@@ -271,6 +263,7 @@ def permission_callback(request):
 #]
 
 
+WAGTAILEMBEDS_RESPONSIVE_HTML = True
 
 DATABASES = {
     'default': {

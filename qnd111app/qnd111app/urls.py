@@ -42,7 +42,7 @@ urlpatterns = i18n_patterns(
   
     #path('orders/', include('orders.urls', namespace='orders')),
     #path('payment/', include('payment.urls', namespace='payment')),
-   # path('shop/', include('shop.urls', namespace='shop')),
+    path('shop/', include('shop.urls', namespace='shop')),
    # path('cart/', include('cart.urls', namespace='cart')),
 
 
