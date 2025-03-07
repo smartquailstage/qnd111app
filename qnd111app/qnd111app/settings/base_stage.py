@@ -24,7 +24,7 @@ if SECRET_KEY is None:
 # Application definition
 
 INSTALLED_APPS = [
-    'parler',
+   
     "unfold",  # before django.contrib.admin
     "unfold.contrib.filters",  # optional, if special filters are needed
     "unfold.contrib.forms",  # optional, if special form elements are needed
@@ -32,20 +32,16 @@ INSTALLED_APPS = [
     "unfold.contrib.import_export",  # optional, if django-import-export package is used
     "unfold.contrib.guardian",  # optional, if django-guardian package is used
     "unfold.contrib.simple_history",
-   
 
+    'parler',
     'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shop',
-    'orders',
-    'payment',
-    'coupons',
-    #WEBAPP
-    "webapp",
+    
+
 
 
     'core',
@@ -69,6 +65,18 @@ INSTALLED_APPS = [
     "wagtail_localize",
     'wagtailgmaps',
     'wagtailmenus',
+    'wagtail_modeltranslation',
+    'wagtail_modeltranslation.makemigrations',
+    'wagtail_modeltranslation.migrate',
+
+    'shop',
+    'orders',
+    'payment',
+    'coupons',
+    #WEBAPP
+    "webapp",
+    'subscription',
+
     'django_social_share',
     'taggit',
     'widget_tweaks',
@@ -94,12 +102,14 @@ INSTALLED_APPS = [
  
     'bootstrap_datepicker_plus',
   
-    'wagtail_modeltranslation',
-    'wagtail_modeltranslation.makemigrations',
-    'wagtail_modeltranslation.migrate',
-   
+
+  
 ]
 
+
+PARLER_DEFAULT_LANGUAGE_CODE = 'en'
+PARLER_DEFAULT_ACTIVATE = True
+PARLER_SHOW_EXCLUDED_LANGUAGE_TABS = False
 
 
 # Configuración de `parler`

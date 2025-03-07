@@ -7,9 +7,6 @@ from django.utils.html import  format_html
 from wagtail import hooks 
 from django.template.loader import render_to_string
 from django.urls import path, reverse,include
-from wagtail.admin import urls as wagtailadmin_urls
-from wagtail import urls as wagtail_urls
-from wagtail import urls as wagtaildocs_urls
 
 
 

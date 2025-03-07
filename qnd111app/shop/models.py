@@ -6,30 +6,15 @@ from wagtail.models import Page
 
 
 class Category(TranslatableModel):
-    # Definimos los campos traducibles
-    translations = TranslatedFields(
-        name=models.CharField(max_length=200, db_index=True),
-        slug=models.SlugField(max_length=200, unique=True),
-        image=models.ImageField(upload_to='categories/%Y/%m/%d', blank=True),
-        salidas=models.DateTimeField(null=True),
-        desde=models.CharField(max_length=200, null=True),
-        description=models.TextField(blank=True, null=True),
-        detail=models.FileField(upload_to='tours/%Y/%m/%d', null=True),
-        terms=models.TextField(blank=True)
-    )
-
-    # Definir el panel de administración para la edición de campos traducidos
-    content_panels = [
-        FieldPanel('translations__name'),  # Nombre
-        FieldPanel('translations__slug'),  # Slug
-        FieldPanel('translations__image'),  # Imagen
-        FieldPanel('translations__salidas'),  # Salidas
-        FieldPanel('translations__desde'),  # Desde
-        FieldPanel('translations__description'),  # Descripción
-        FieldPanel('translations__detail'),  # Detalles
-        FieldPanel('translations__terms')  # Términos
-    ]
-
+    name=models.CharField(max_length=200, db_index=True,null=True)
+    slug=models.SlugField(max_length=200, unique=True,null=True)
+    image=models.ImageField(upload_to='categories/%Y/%m/%d', blank=True,null=True)
+    salidas=models.DateTimeField(null=True)
+    desde=models.CharField(max_length=200, null=True)
+    description=models.TextField(blank=True, null=True)
+    detail=models.FileField(upload_to='tours/%Y/%m/%d', null=True)
+    terms=models.TextField(blank=True,null=True)
+    
     class Meta:
         verbose_name = 'category'
         verbose_name_plural = 'categories'
