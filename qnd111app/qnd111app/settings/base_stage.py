@@ -75,7 +75,7 @@ INSTALLED_APPS = [
     'coupons',
     #WEBAPP
     "webapp",
-    'subscription',
+    #'subscription',
 
     'django_social_share',
     'taggit',

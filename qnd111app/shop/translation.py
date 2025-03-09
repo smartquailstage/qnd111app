@@ -5,7 +5,7 @@ from modeltranslation.decorators import register
 
 @register(Product)
 class Products(TranslationOptions):
-    fields = ('name','slug','image','salidas','desde','description','detail','terms')
+    fields = ('name','slug','image')
 
 
 @register(Category)

@@ -16,7 +16,7 @@ header {
 }
 
 .login .content-wrapper {
-    background: #002323;
+    background: #175535;
     border: 3px solid #0000;
     border-radius: .625rem;
     box-shadow: 5px 5px 30px var(--w-color-box-shadow-md);
@@ -25,13 +25,18 @@ header {
     margin-bottom: 15vh;
     max-width: 25.2rem;
     padding: 2.5rem 3rem;
-}
+  }
 
+
+  .sidebar-menu-item--active {
+    background-color: #424845;
+    text-shadow: -1px -1px 0 var(--w-color-black-35);
+}
 
 
 .sidebar__inner {
     height: 100%;
-    background: #002323;
+    background: #424845;
     display: flex;
     flex-flow: column nowrap;
   }
