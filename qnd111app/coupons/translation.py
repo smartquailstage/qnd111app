@@ -4,7 +4,7 @@ from modeltranslation.decorators import register
 
 
 @register(Coupon)
-class Order(TranslationOptions):
-    fields = ('code','valid_from ','valid_to','discount','active')
+class Coupon(TranslationOptions):
+    Coupon = ('code','valid_from ','valid_to','discount','active')
 
 

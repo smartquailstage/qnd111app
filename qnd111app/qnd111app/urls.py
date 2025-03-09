@@ -64,6 +64,8 @@ urlpatterns = i18n_patterns(
     re_path(r'^businessmedia/', include(wagtailadmin_urls),name='wagtail'),
     re_path(r'^documents/', include(wagtaildocs_urls)),
     re_path(r'', include(wagtail_urls)),
+    prefix_default_language=False,
+    
 
    
 

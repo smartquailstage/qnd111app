@@ -3,6 +3,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Load environment variables from the .env_local file.
@@ -58,23 +59,22 @@ INSTALLED_APPS = [
     'wagtail.documents',
     'wagtail.images',
     'wagtail.search',
-    'wagtail.locales',
+   # 'wagtail.locales',
+    'wagtail_localize.locales',
     'rosetta',   
     'wagtail.admin',
     'wagtail.contrib.routable_page',
     "wagtail_localize",
     'wagtailgmaps',
     'wagtailmenus',
-    'wagtail_modeltranslation',
-    'wagtail_modeltranslation.makemigrations',
-    'wagtail_modeltranslation.migrate',
+
 
     'shop',
     'orders',
     'payment',
     'coupons',
     #WEBAPP
-    "webapp",
+   
     #'subscription',
 
     'django_social_share',
@@ -99,8 +99,11 @@ INSTALLED_APPS = [
     'phone_field',
     'phonenumber_field',
     'bootstrap5',
- 
+    'wagtail_modeltranslation',
+    'wagtail_modeltranslation.makemigrations',
+    'wagtail_modeltranslation.migrate',
     'bootstrap_datepicker_plus',
+     "webapp",
   
 
   
@@ -226,6 +229,8 @@ WAGTAILIMAGES_MAX_IMAGE_PIXELS = os.environ.get('WAGTAILIMAGES_MAX_IMAGE_PIXELS'
 
 
 
+
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -274,10 +279,10 @@ USE_L10N = os.environ.get('USE_L10N')
 USE_TZ = os.environ.get('USE_TZ') 
 
 
+
 WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
-    ('en', 'English'),
-    ('fr', 'French'),
-    ('es', 'Spanish'),
+    ('en', _('English')),
+    ('es', _('Spanish')),
 ]
 
 
