@@ -69,11 +69,7 @@ INSTALLED_APPS = [
     'wagtailmenus',
 
 
-    'shop',
-    'orders',
-    'payment',
-    'coupons',
-    #WEBAPP
+
    
     #'subscription',
 
@@ -99,12 +95,17 @@ INSTALLED_APPS = [
     'phone_field',
     'phonenumber_field',
     'bootstrap5',
-    'wagtail_modeltranslation',
-    'wagtail_modeltranslation.makemigrations',
-    'wagtail_modeltranslation.migrate',
+
     'bootstrap_datepicker_plus',
      "webapp",
-  
+      'shop',
+    'orders',
+    'payment',
+    'coupons',
+    #WEBAPP
+    #'wagtail_modeltranslation',
+    #'wagtail_modeltranslation.makemigrations',
+    #'wagtail_modeltranslation.migrate',
 
   
 ]
@@ -146,6 +147,7 @@ MIDDLEWARE = [
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     #'wagtail.core.middleware.site.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+   # 'shop.middleware.LocaleRedirectMiddleware', 
 ]
 
 
@@ -224,6 +226,8 @@ WSGI_APPLICATION = os.environ.get('WSGI_APPLICATION')
 WAGTAIL_ADMIN_BASE_URL =  os.environ.get('DOMAINS')
 WAGTAILIMAGES_MAX_UPLOAD_SIZE = os.environ.get('WAGTAILIMAGES_MAX_UPLOAD_SIZE')
 WAGTAILIMAGES_MAX_IMAGE_PIXELS = os.environ.get('WAGTAILIMAGES_MAX_IMAGE_PIXELS')
+MODELTRANSLATION_AUTOPOPULATE = False
+
 
 
 
@@ -277,6 +281,11 @@ TIME_ZONE = os.environ.get('TIME_ZONE')
 USE_I18N = os.environ.get('USE_I18N') 
 USE_L10N = os.environ.get('USE_L10N') 
 USE_TZ = os.environ.get('USE_TZ') 
+
+WAGTAILLOCALIZE = {
+    'ENABLE_TRANSLATION_FIELD': True,  # Activar campos traducibles
+    'DEFAULT_LANGUAGE': 'en',  # El idioma predeterminado para la localización
+}
 
 
 

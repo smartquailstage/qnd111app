@@ -195,19 +195,7 @@ UNFOLD = {
             },
         ],
     },
-    "TABS": [
-        {
-            "models": [
-                "shop.product",
-            ],
-            "items": [
-                {
-                    "title": _("Products"),
-                    "link": reverse_lazy("admin:shop_product_changelist"),
-                },
-            ],
-        },
-    ],
+
 }
 
 
