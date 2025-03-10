@@ -16,6 +16,7 @@ django-social-share
 # Wagtail Google Maps
 wagtailgmaps
 wagtail-modeltranslation
+wagtail_modeladmin
 
 # XlsxWriter
 XlsxWriter
