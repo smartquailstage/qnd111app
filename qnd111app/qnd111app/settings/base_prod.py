@@ -452,9 +452,7 @@ LOCALE_PATHS = [
 ]
 
 
-# Rutas públicas a los archivos
-MEDIA_URL = "https://www-static.sfo3.digitaloceanspaces.com/media/"
-STATIC_URL = "https://www-static.sfo3.digitaloceanspaces.com/static/"
+
 
 
 
