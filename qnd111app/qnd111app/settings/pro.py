@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['*']
 
 
 
+WAGTAILEMBEDS_RESPONSIVE_HTML = True
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -72,6 +74,19 @@ if DB_IS_AVAILABLE:
 #Static files DevMod
 
 
+# settings.py
+
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# celery setup
+
+
+#Static files DevMod
+
+
 
 
 
@@ -80,7 +95,6 @@ from .cdn.conf import * #noqa
 
 
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # celery setup
