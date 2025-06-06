@@ -3,10 +3,10 @@ import os
 from celery import Celery
 
 # Establece el módulo de configuración de Django para Celery.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'qnd41app.settings.base')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'qnd111app.settings.base')
 
 # Crea una instancia de Celery.
-app = Celery('qnd41app')
+app = Celery('qnd111app')
 
 # Configura Celery utilizando la configuración de Django.
 # La opción 'namespace' especifica que las configuraciones de Celery deben estar bajo el prefijo CELERY en el archivo de configuración de Django.

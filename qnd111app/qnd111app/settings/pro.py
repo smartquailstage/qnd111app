@@ -137,10 +137,12 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SEC
 
 
 
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': f"redis://{os.getenv('REDIS_USER')}:{os.getenv('REDIS_PASSWORD')}@redis:6379/1",
+        'LOCATION': f"redis://{REDIS_HOST}:6379/1",  # sin usuario ni contraseña
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
