@@ -76,7 +76,7 @@ if DB_IS_AVAILABLE:
 
 # settings.py
 
-DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
