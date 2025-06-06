@@ -121,42 +121,52 @@ UNFOLD = {
     "SITE_TITLE": "SmartBusinessAnalytics",
     "SITE_HEADER": "SmartBusinessAnalytics",
     "SITE_URL": "/",
-    # "SITE_ICON": lambda request: static("icon.svg"),  # both modes, optimise for 32px height
+    
     "SITE_ICON": {
-        "light": lambda request: static("img/logo.png"),  # light mode
-        "dark": lambda request: static("img/logo.png"),  # dark mode
+        "light": lambda request: static("img/logo.png"),
+        "dark": lambda request: static("img/logo.png"),
     },
-    # "SITE_LOGO": lambda request: static("logo.svg"),  # both modes, optimise for 32px height
+    
     "SITE_LOGO": {
-        "light": lambda request: static("img/smartbusinessanalytics.png"),  # light mode
-        "dark": lambda request: static("img/smartbusinessanalytics.png"),  # dark mode
+        "light": lambda request: static("img/smartbusinessanalytics.png"),
+        "dark": lambda request: static("img/smartbusinessanalytics.png"),
     },
-    "SITE_SYMBOL": "speed",  # symbol from icon set
+    
+    "SITE_SYMBOL": "speed",
+
     "SITE_FAVICONS": [
         {
             "rel": "icon",
             "sizes": "32x32",
-            "type": "image/svg+xml",
+            "type": "image/png",
             "href": lambda request: static("img/logo.png"),
         },
     ],
-    "SHOW_HISTORY": True, # show/hide "History" button, default: True
-    "SHOW_VIEW_ON_SITE": True, # show/hide "View on site" button, default: True
-    "SHOW_BACK_BUTTON": True, # show/hide "Back" button on changeform in header, default: False
+
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+    "SHOW_BACK_BUTTON": True,
+
     "ENVIRONMENT": "danger.environment_callback",
-    #"DASHBOARD_CALLBACK": "sbmshop.dashboard_callback",
-    "THEME": "light", # Force theme: "dark" or "light". Will disable theme switcher
+    # "DASHBOARD_CALLBACK": "sbmshop.dashboard_callback",
+
+    "THEME": "light",
+
     "LOGIN": {
         "image": lambda request: static("img/login_splash.jpg"),
-        #"redirect_after": lambda request: reverse_lazy("admin:APP_MODEL_changelist"),
+        # "redirect_after": lambda request: reverse_lazy("admin:APP_MODEL_changelist"),
     },
+
     "STYLES": [
         lambda request: static("css/style.css"),
     ],
+
     "SCRIPTS": [
         lambda request: static("js/script.js"),
     ],
+
     "BORDER_RADIUS": "3px",
+
     "COLORS": {
         "base": {
             "50": "249 250 251",
@@ -171,7 +181,6 @@ UNFOLD = {
             "900": "17 24 39",
             "950": "3 7 18",
         },
-        
         "primary": {
             "50": "250 245 255",
             "100": "243 232 255",
@@ -186,14 +195,15 @@ UNFOLD = {
             "950": "59 7 100",
         },
         "font": {
-            "subtle-light": "var(--color-base-500)",  # text-base-500
-            "subtle-dark": "var(--color-base-400)",  # text-base-400
-            "default-light": "var(--color-base-600)",  # text-base-600
-            "default-dark": "var(--color-base-300)",  # text-base-300
-            "important-light": "var(--color-base-900)",  # text-base-900
-            "important-dark": "var(--color-base-100)",  # text-base-100
+            "subtle-light": "var(--color-base-500)",
+            "subtle-dark": "var(--color-base-400)",
+            "default-light": "var(--color-base-600)",
+            "default-dark": "var(--color-base-300)",
+            "important-light": "var(--color-base-900)",
+            "important-dark": "var(--color-base-100)",
         },
     },
+
     "EXTENSIONS": {
         "modeltranslation": {
             "flags": {
@@ -205,19 +215,18 @@ UNFOLD = {
     },
 
     "SIDEBAR": {
-        "show_search": True,  # Search in applications and models names
-        "show_all_applications": True,  # Dropdown with all applications and models
+        "show_search": True,
+        "show_all_applications": True,
         "navigation": [
             {
                 "title": _("Business Analytics"),
-                "separator": True,  # Top border
-                "collapsible": True,  # Collapsible group of links
+                "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": _("Dashboard"),
-                        "icon": "dashboard",  # Supported icon set: https://fonts.google.com/icons
+                        "icon": "dashboard",
                         "link": reverse_lazy("admin:index"),
-                       # "badge": "sample_app.badge_callback",
                         "permission": lambda request: request.user.is_superuser,
                     },
                     {
@@ -232,50 +241,21 @@ UNFOLD = {
                     },
                 ],
             },
-
-                        {
-                "title": _("Business Analytics"),
-                "separator": True,  # Top border
-                "collapsible": True,  # Collapsible group of links
-                "items": [
-                    {
-                        "title": _("Dashboard"),
-                        "icon": "dashboard",  # Supported icon set: https://fonts.google.com/icons
-                        "link": reverse_lazy("admin:index"),
-                       # "badge": "sample_app.badge_callback",
-                        "permission": lambda request: request.user.is_superuser,
-                    },
-                    {
-                        "title": _("Users"),
-                        "icon": "people",
-                        "link": reverse_lazy("admin:auth_user_changelist"),
-                    },
-                    {
-                        "title": _("SmartBusinessMedia"),
-                        "icon": "analytics",
-                        "link": reverse_lazy("admin:sbmshop_category_changelist"),
-                    },
-                ],
-            },
-
         ],
     },
 
     "TABS": [
         {
-            "models": [
-                "sbmshop.category",
-            ],
+            "models": ["sbmshop.category"],
             "items": [
                 {
                     "title": _("Categories"),
                     "link": reverse_lazy("admin:sbmshop_category_changelist"),
-                   # "permission": "sample_app.permission_callback",
+                    # "permission": "sample_app.permission_callback",
                 },
             ],
         },
     ],
-
 }
 
 
@@ -472,6 +452,11 @@ LOCALE_PATHS = [
 ]
 
 
+# Rutas públicas a los archivos
+MEDIA_URL = "https://www-static.sfo3.digitaloceanspaces.com/media/"
+STATIC_URL = "https://www-static.sfo3.digitaloceanspaces.com/static/"
+
+
 
 USE_I18N = True
 
@@ -482,16 +467,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-
-
-from core.storage_backends import MediaRootS3BotoStorage
-
-WAGTAILIMAGES_IMAGE_FIELD = {
-    'storage': MediaRootS3BotoStorage()
-}
-
-
 
 
 
