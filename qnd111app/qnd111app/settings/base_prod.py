@@ -109,6 +109,10 @@ INSTALLED_APPS = [
   
 ]
 
+
+
+
+
 from django.templatetags.static import static
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -451,6 +455,21 @@ LANGUAGE_CODE = 'es-Ec'
 TIME_ZONE = 'America/Guayaquil'
 
 
+
+from storages.backends.s3boto3 import S3Boto3Storage
+
+class DigitalOceanMediaStorage(S3Boto3Storage):
+    bucket_name = os.environ.get('AWS_STORAGE_BUCKET_NAME')  # tu bucket de DO Spaces
+    custom_domain = os.environ.get('AWS_S3_ENDPOINT_URL')   # tu dominio CDN, ej: https://xyz.digitaloceanspaces.com
+    location = 'media'  # Carpeta dentro del bucket donde guardas las imágenes (ajusta si usas otra)
+
+    # Opcional: evita sobreescribir archivos con el mismo nombre
+    file_overwrite = False
+
+
+WAGTAILIMAGES_IMAGE_FIELD = {
+    'storage': DigitalOceanMediaStorage()
+}
 
 
 WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
