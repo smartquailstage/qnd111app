@@ -128,7 +128,7 @@ UNFOLD = {
     },
     
     "SITE_LOGO": {
-        "light": lambda request: static("img/smartbusinessanalytics.png"),
+        "light": lambda request: static("img/logo-nomadas.png"),
         "dark": lambda request: static("img/smartbusinessanalytics.png"),
     },
     
