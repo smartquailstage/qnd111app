@@ -90,7 +90,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-from .cdn.conf import * #noqa
+
 
 
 
@@ -157,6 +157,8 @@ TWILIO_WHATSAPP_FROM = os.getenv("TWILIO_WHATSAPP_FROM")
 
 STATIC_URL = f'{os.environ.get("AWS_S3_ENDPOINT_URL")}/static/'
 MEDIA_URL = f'{os.environ.get("AWS_S3_ENDPOINT_URL")}/media/'
+
+from .cdn.conf import * #noqa
 
 # Configuración de AWS
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
