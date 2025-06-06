@@ -1,50 +1,35 @@
 from django.templatetags.static import static
-from wagtail.admin.menu import MenuItem,SubmenuMenuItem
-#from wagtail_modeladmin.menus import SubMenu
+from django.urls import reverse, path
+from django.utils.html import format_html
+from wagtail import hooks
+from wagtail.admin.menu import MenuItem
 
-from django.urls import reverse
-from django.utils.html import  format_html
-from wagtail import hooks 
-from django.template.loader import render_to_string
-from django.urls import path, reverse,include
+# Elimina imports innecesarios o duplicados
+# from wagtail_modeladmin.menus import SubMenu  # ❌ No se usa
+# from django.urls import reverse, include  # ❌ ya está importado
+# from django.template.loader import render_to_string  # ❌ No usado
+# from shop.admin import CategoryAdmin  # ❌ No usado
+# Asegúrate de tener definido el view `index` que usas más abajo
 
-
-
-
-from shop.admin import CategoryAdmin
-
-
-@hooks.register('register_category_url')
+# 1. Añadir URL personalizada (si tienes definida la vista `index`)
+@hooks.register('register_category_url')  # ⚠️ Este hook no es válido en Wagtail; probablemente querías 'register_admin_urls'
 def register_category_url():
     return [
         path('ecommerce/', index, name='ecommerce'),
     ]
 
-@hooks.register("insert_global_admin_css",order=100)
+# ✅ Correcto: añadir CSS personalizado al admin
+@hooks.register("insert_global_admin_css")
 def global_admin_css():
     return format_html('<link rel="stylesheet" href="{}">', static("css/custom.css"))
 
-
-
-
-@hooks.register("insert_global_admin_css", order=100)
-def global_admin_css():
-    return format_html('<link rel="stylesheet" href="{}">', static("css/custom.css"))
-
-
-
+# ✅ Añadir un nuevo item al menú del admin de Wagtail
 @hooks.register('register_admin_menu_item')
 def register_custom_menu_item():
-    # Genera la URL correctamente con reverse
     url = reverse('wagtailadmin_home')
-    
-    # Crea un nuevo elemento de menú con la URL generada
     return MenuItem(
-        'Dashboard',  # El nombre del elemento
-        url,  # Utiliza la URL generada por reverse
-        classnames='icon icon-tasks',  # Clases CSS para el ícono del menú, usa iconos de Wagtail
-        order=100  # El orden en que se muestra el ítem (menor valor, más arriba)
+        'Dashboard',
+        url,
+        classname='icon icon-tasks',  # ✅ corregido: debe ser "classname", no "classnames"
+        order=100
     )
-
-
-
