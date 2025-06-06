@@ -1,27 +1,29 @@
 import os
 
-# Configuración de AWS
+# Configuración de AWS y DigitalOcean Spaces
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
-AWS_S3_ENDPOINT_URL = os.environ.get("AWS_S3_ENDPOINT_URL").rstrip('/')
+
+# Asegúrate de que AWS_S3_ENDPOINT_URL no sea None antes de llamar a rstrip
+endpoint_url = os.environ.get("AWS_S3_ENDPOINT_URL", "")
+AWS_S3_ENDPOINT_URL = endpoint_url.rstrip('/') if endpoint_url else ""
+
 AWS_S3_OBJECT_PARAMETERS = {
-    "CacheControl": "max-age=86400", 
-    "ACL": "public-read"  # Cambia a 'private' si los archivos deben ser privados
+    "CacheControl": "max-age=86400",
+    "ACL": "public-read"  # Cambia a 'private' si quieres archivos privados
 }
 
-# Configuración de almacenamiento
-AWS_LOCATION = os.environ.get("AWS_LOCATION")  # 'static' o 'media'
+# Ubicación dentro del bucket ('static' o 'media'), con valor por defecto
+AWS_LOCATION = os.environ.get("AWS_LOCATION", "static")
 
-# Asegúrate de que la URL de los archivos estáticos esté correcta
-STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/'
+# URLs públicas para los archivos estáticos y media
+STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/' if AWS_S3_ENDPOINT_URL else "/static/"
+MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/media/' if AWS_S3_ENDPOINT_URL else "/media/"
 
-# Almacenamiento de archivos estáticos
+# Backends de almacenamiento para archivos estáticos y media
 STATICFILES_STORAGE = os.environ.get("STATICFILES_STORAGE")
-
-# Almacenamiento de archivos de medios
 DEFAULT_FILE_STORAGE = os.environ.get("MEDIA_STORAGE")
-MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/media/"
 
-# Si usas DigitalOcean, añade esta configuración
+# Configuración específica para DigitalOcean Spaces con firma v4
 AWS_S3_SIGNATURE_VERSION = 's3v4'
