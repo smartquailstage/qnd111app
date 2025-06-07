@@ -25,3 +25,5 @@ MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/media/"
 
 # Si usas DigitalOcean, añade esta configuración
 AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+

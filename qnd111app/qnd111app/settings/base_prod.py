@@ -554,7 +554,10 @@ USE_TZ = True
 
 
 DEFAULT_FILE_STORAGE = os.environ.get("MEDIA_STORAGE")
-STATICFILES_STORAGE =  os.environ.get("STATICFILES_STORAGE")
+STATICFILES_STORAGE = os.environ.get(
+    "STATICFILES_STORAGE",
+    "django.contrib.staticfiles.storage.StaticFilesStorage"
+)
 
 # Rutas públicas a los archivos
 MEDIA_URL = "https://www-static.sfo3.digitaloceanspaces.com/media/"
